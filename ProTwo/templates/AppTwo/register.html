@@ -1,0 +1,37 @@
+{% extends 'AppTwo/base_template.html' %}
+{% block title %}
+Register
+{% endblock title %}
+  {% block css %}
+    <style media="screen">
+      /* .formdiv {
+        border:1px solid black;
+      } */
+      form {
+        padding-left:20px;
+      }
+    </style>
+
+    {% endblock css%}
+{% block body %}
+
+    <div class="container">
+      <div class="jumbotron">
+        {% if registered %}
+          <h1>Thank you for Registering!</h1>
+          <p>Goto Login Page  to Log into website</p>
+        {% else %}
+          <h1>Register Form</h1>
+          <p>Fill Out The Details To Register</p>
+
+            </div>
+          <form enctype="multipart/form-data" method="post">
+          {% csrf_token %}
+          {{ user_form.as_p }}
+          {{ profile_form.as_p }}
+          <input type="submit" value="Register" class="btn btn-primary">
+        </form>
+
+        {% endif %}
+  </div>
+{% endblock body %}

@@ -1,0 +1,19 @@
+{% extends 'AppTwo/base_template.html' %}
+{% block title %}Login{% endblock title %}
+{% block body %}
+<div class="container">
+  <div class="jumbotron">
+    <h1>Login</h1>
+  </div>
+  <form action="{% url 'AppTwo:user_login' %}" method="post">
+    {% csrf_token %}
+    <label for="username">Username:</label>
+    <input type="text" name="username" placeholder="Username"><br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" placeholder="Password"><br><br>
+
+    <input type="submit" name="" value="Login" class="btn btn-primary">
+  </form>
+</div>
+{% endblock body %}
